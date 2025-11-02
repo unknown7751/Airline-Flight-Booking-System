@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter } from "next/navigation"
 import { SearchResultsHeader } from "@/components/search-results/search-results-header"
 import { FilterSidebar } from "@/components/search-results/filter-sidebar"
 import { FlightCard } from "@/components/search-results/flight-card"
@@ -12,6 +12,7 @@ import type { Flight, SearchFilters } from "@/types/flight"
 
 export default function SearchResultsPage() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   
   // Get search parameters from URL
   const from = searchParams?.get("from") || ""
@@ -89,6 +90,13 @@ export default function SearchResultsPage() {
     setFilteredFlights(result)
   }, [flights, filters])
 
+  const handleSelectFlight = (flight: Flight) => {
+    // Store selected flight in localStorage for booking page
+    localStorage.setItem('selectedFlight', JSON.stringify(flight))
+    // Navigate to booking page with flight ID
+    router.push(`/booking?flightId=${flight.id}`)
+  }
+
   if (error) {
     return (
       <main className="min-h-screen bg-background">
@@ -118,7 +126,7 @@ export default function SearchResultsPage() {
             ) : (
               <div className="space-y-4">
                 {filteredFlights.map((flight) => (
-                  <FlightCard key={flight.id} flight={flight} />
+                  <FlightCard key={flight.id} flight={flight} onSelect={handleSelectFlight} />
                 ))}
               </div>
             )}

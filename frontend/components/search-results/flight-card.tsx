@@ -8,9 +8,10 @@ import type { Flight } from "@/types/flight"
 
 interface FlightCardProps {
   flight: Flight
+  onSelect?: (flight: Flight) => void
 }
 
-export function FlightCard({ flight }: FlightCardProps) {
+export function FlightCard({ flight, onSelect }: FlightCardProps) {
   const originalPrice = Math.round(flight.price * 1.2)
   const discount = Math.round(((originalPrice - flight.price) / originalPrice) * 100)
 
@@ -96,7 +97,9 @@ export function FlightCard({ flight }: FlightCardProps) {
           )}
         </div>
 
-        <Button className="w-full">Select Flight</Button>
+        <Button className="w-full" onClick={() => onSelect?.(flight)}>
+          Select Flight
+        </Button>
       </div>
     </Card>
   )

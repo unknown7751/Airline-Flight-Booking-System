@@ -5,7 +5,7 @@ import type { Seat } from "@/types/booking"
 import { SeatMap } from "./seat-map"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-// import { api } from "@/lib/api"
+import { api } from "@/lib/api"
 
 interface SeatSelectionStepProps {
   selectedSeats: Seat[]
@@ -15,24 +15,56 @@ interface SeatSelectionStepProps {
   flightId?: string // Flight ID to fetch seat availability
 }
 
-// TODO: Fetch seat availability from backend API
-// Example usage:
-// useEffect(() => {
-//   const fetchSeats = async () => {
-//     if (!flightId) return
-//     try {
-//       const data = await api.flights.getSeats(flightId)
-//       setSeats(data)
-//     } catch (error) {
-//       console.error("Error fetching seats:", error)
-//     }
-//   }
-//   fetchSeats()
-// }, [flightId])
-
 export function SeatSelectionStep({ selectedSeats, onToggleSeat, onNext, onPrevious, flightId }: SeatSelectionStepProps) {
   const [seats, setSeats] = useState<Seat[]>([])
-  const totalPrice = selectedSeats.reduce((sum, seat) => sum + seat.price, 0)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const totalPrice = selectedSeats.reduce((sum, seat) => sum + (Number(seat.price) || 0), 0)
+
+  useEffect(() => {
+    const fetchSeats = async () => {
+      if (!flightId) {
+        setError("Flight ID is required")
+        setLoading(false)
+        return
+      }
+      
+      try {
+        setLoading(true)
+        setError(null)
+        const response: any = await api.flights.getSeats(flightId)
+        setSeats(response.data || [])
+      } catch (error) {
+        console.error("Error fetching seats:", error)
+        setError("Failed to load seats. Please try again.")
+      } finally {
+        setLoading(false)
+      }
+    }
+    
+    fetchSeats()
+  }, [flightId])
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <Card className="p-8 text-center">
+          <p className="text-muted-foreground">Loading seats...</p>
+        </Card>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-6">
+        <Card className="p-8 text-center">
+          <p className="text-destructive">{error}</p>
+          <Button onClick={onPrevious} className="mt-4">Go Back</Button>
+        </Card>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">
@@ -44,7 +76,7 @@ export function SeatSelectionStep({ selectedSeats, onToggleSeat, onNext, onPrevi
             <div>
               <p className="text-sm text-muted-foreground">Selected Seats</p>
               <p className="font-semibold">
-                {selectedSeats.map((s) => s.seatNumber).join(", ")} - ${totalPrice}
+                {selectedSeats.map((s) => s.seatNumber).join(", ")} - ${totalPrice.toFixed(2)}
               </p>
             </div>
           </div>

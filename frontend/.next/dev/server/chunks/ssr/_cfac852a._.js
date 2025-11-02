@@ -1160,7 +1160,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 ;
 ;
-function FlightCard({ flight }) {
+function FlightCard({ flight, onSelect }) {
     const originalPrice = Math.round(flight.price * 1.2);
     const discount = Math.round((originalPrice - flight.price) / originalPrice * 100);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -1180,12 +1180,12 @@ function FlightCard({ flight }) {
                                         className: "h-6 w-6 text-primary"
                                     }, void 0, false, {
                                         fileName: "[project]/components/search-results/flight-card.tsx",
-                                        lineNumber: 23,
+                                        lineNumber: 24,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 22,
+                                    lineNumber: 23,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1195,7 +1195,7 @@ function FlightCard({ flight }) {
                                             children: flight.airline
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 26,
+                                            lineNumber: 27,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1206,19 +1206,19 @@ function FlightCard({ flight }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 27,
+                                            lineNumber: 28,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 25,
+                                    lineNumber: 26,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 21,
+                            lineNumber: 22,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1235,7 +1235,7 @@ function FlightCard({ flight }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 32,
+                                            lineNumber: 33,
                                             columnNumber: 15
                                         }, this),
                                         discount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1246,7 +1246,7 @@ function FlightCard({ flight }) {
                                                     className: "h-3 w-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                                    lineNumber: 35,
+                                                    lineNumber: 36,
                                                     columnNumber: 19
                                                 }, this),
                                                 discount,
@@ -1254,13 +1254,13 @@ function FlightCard({ flight }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 34,
+                                            lineNumber: 35,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1271,19 +1271,19 @@ function FlightCard({ flight }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 40,
+                                    lineNumber: 41,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 30,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/search-results/flight-card.tsx",
-                    lineNumber: 20,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1298,12 +1298,12 @@ function FlightCard({ flight }) {
                                         className: "h-5 w-5 text-primary"
                                     }, void 0, false, {
                                         fileName: "[project]/components/search-results/flight-card.tsx",
-                                        lineNumber: 48,
+                                        lineNumber: 49,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 47,
+                                    lineNumber: 48,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1313,7 +1313,7 @@ function FlightCard({ flight }) {
                                             children: "Departure"
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 51,
+                                            lineNumber: 52,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1321,7 +1321,7 @@ function FlightCard({ flight }) {
                                             children: flight.departureCode
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 52,
+                                            lineNumber: 53,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1329,7 +1329,7 @@ function FlightCard({ flight }) {
                                             children: flight.departureTime
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 53,
+                                            lineNumber: 54,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1337,19 +1337,19 @@ function FlightCard({ flight }) {
                                             children: flight.departureCity
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 54,
+                                            lineNumber: 55,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 51,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1362,27 +1362,27 @@ function FlightCard({ flight }) {
                                             className: "h-px flex-1 bg-border"
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 61,
+                                            lineNumber: 62,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
                                             className: "h-4 w-4 text-muted-foreground"
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 62,
+                                            lineNumber: 63,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "h-px flex-1 bg-border"
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 63,
+                                            lineNumber: 64,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1393,7 +1393,7 @@ function FlightCard({ flight }) {
                                             children: flight.duration
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 66,
+                                            lineNumber: 67,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1401,19 +1401,19 @@ function FlightCard({ flight }) {
                                             children: flight.stops === 0 ? "Non-stop" : `${flight.stops} stop${flight.stops > 1 ? "s" : ""}`
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 67,
+                                            lineNumber: 68,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 65,
+                                    lineNumber: 66,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 59,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1425,12 +1425,12 @@ function FlightCard({ flight }) {
                                         className: "h-5 w-5 text-primary"
                                     }, void 0, false, {
                                         fileName: "[project]/components/search-results/flight-card.tsx",
-                                        lineNumber: 76,
+                                        lineNumber: 77,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 75,
+                                    lineNumber: 76,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1440,7 +1440,7 @@ function FlightCard({ flight }) {
                                             children: "Arrival"
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 79,
+                                            lineNumber: 80,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1448,7 +1448,7 @@ function FlightCard({ flight }) {
                                             children: flight.arrivalCode
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 80,
+                                            lineNumber: 81,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1456,7 +1456,7 @@ function FlightCard({ flight }) {
                                             children: flight.arrivalTime
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 81,
+                                            lineNumber: 82,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1464,25 +1464,25 @@ function FlightCard({ flight }) {
                                             children: flight.arrivalCity
                                         }, void 0, false, {
                                             fileName: "[project]/components/search-results/flight-card.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 83,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 78,
+                                    lineNumber: 79,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 74,
+                            lineNumber: 75,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/search-results/flight-card.tsx",
-                    lineNumber: 44,
+                    lineNumber: 45,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1495,7 +1495,7 @@ function FlightCard({ flight }) {
                                     className: "h-4 w-4"
                                 }, void 0, false, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 90,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1505,13 +1505,13 @@ function FlightCard({ flight }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/search-results/flight-card.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 88,
+                            lineNumber: 89,
                             columnNumber: 11
                         }, this),
                         flight.seatsAvailable < 5 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1524,32 +1524,33 @@ function FlightCard({ flight }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/search-results/flight-card.tsx",
-                            lineNumber: 93,
+                            lineNumber: 94,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/search-results/flight-card.tsx",
-                    lineNumber: 87,
+                    lineNumber: 88,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                     className: "w-full",
+                    onClick: ()=>onSelect?.(flight),
                     children: "Select Flight"
                 }, void 0, false, {
                     fileName: "[project]/components/search-results/flight-card.tsx",
-                    lineNumber: 99,
+                    lineNumber: 100,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/search-results/flight-card.tsx",
-            lineNumber: 19,
+            lineNumber: 20,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/search-results/flight-card.tsx",
-        lineNumber: 18,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 }
@@ -1875,7 +1876,8 @@ const api = {
             return fetchAPI(`/flights/search?${queryParams}`);
         },
         getAll: ()=>fetchAPI('/flights'),
-        getById: (id)=>fetchAPI(`/flights/${id}`)
+        getById: (id)=>fetchAPI(`/flights/${id}`),
+        getSeats: (flightId)=>fetchAPI(`/flights/${flightId}/seats`)
     },
     // Airports
     airports: {
@@ -2047,6 +2049,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$use$2d$flight$2d$se
 ;
 function SearchResultsPage() {
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     // Get search parameters from URL
     const from = searchParams?.get("from") || "";
     const to = searchParams?.get("to") || "";
@@ -2124,6 +2127,12 @@ function SearchResultsPage() {
         flights,
         filters
     ]);
+    const handleSelectFlight = (flight)=>{
+        // Store selected flight in localStorage for booking page
+        localStorage.setItem('selectedFlight', JSON.stringify(flight));
+        // Navigate to booking page with flight ID
+        router.push(`/booking?flightId=${flight.id}`);
+    };
     if (error) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
             className: "min-h-screen bg-background",
@@ -2137,7 +2146,7 @@ function SearchResultsPage() {
                             children: "Error loading flights"
                         }, void 0, false, {
                             fileName: "[project]/app/search-results/page.tsx",
-                            lineNumber: 97,
+                            lineNumber: 105,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2145,23 +2154,23 @@ function SearchResultsPage() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/app/search-results/page.tsx",
-                            lineNumber: 98,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/search-results/page.tsx",
-                    lineNumber: 96,
+                    lineNumber: 104,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/search-results/page.tsx",
-                lineNumber: 95,
+                lineNumber: 103,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/search-results/page.tsx",
-            lineNumber: 94,
+            lineNumber: 102,
             columnNumber: 7
         }, this);
     }
@@ -2174,7 +2183,7 @@ function SearchResultsPage() {
                     resultsCount: filteredFlights.length
                 }, void 0, false, {
                     fileName: "[project]/app/search-results/page.tsx",
-                    lineNumber: 108,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2185,53 +2194,54 @@ function SearchResultsPage() {
                             onFiltersChange: setFilters
                         }, void 0, false, {
                             fileName: "[project]/app/search-results/page.tsx",
-                            lineNumber: 111,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "lg:col-span-3",
                             children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$search$2d$results$2f$loading$2d$state$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LoadingState"], {}, void 0, false, {
                                 fileName: "[project]/app/search-results/page.tsx",
-                                lineNumber: 115,
+                                lineNumber: 123,
                                 columnNumber: 15
                             }, this) : filteredFlights.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$search$2d$results$2f$empty$2d$state$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["EmptyState"], {}, void 0, false, {
                                 fileName: "[project]/app/search-results/page.tsx",
-                                lineNumber: 117,
+                                lineNumber: 125,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-4",
                                 children: filteredFlights.map((flight)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$search$2d$results$2f$flight$2d$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FlightCard"], {
-                                        flight: flight
+                                        flight: flight,
+                                        onSelect: handleSelectFlight
                                     }, flight.id, false, {
                                         fileName: "[project]/app/search-results/page.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 129,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/search-results/page.tsx",
-                                lineNumber: 119,
+                                lineNumber: 127,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/search-results/page.tsx",
-                            lineNumber: 113,
+                            lineNumber: 121,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/search-results/page.tsx",
-                    lineNumber: 110,
+                    lineNumber: 118,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/search-results/page.tsx",
-            lineNumber: 107,
+            lineNumber: 115,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/search-results/page.tsx",
-        lineNumber: 106,
+        lineNumber: 114,
         columnNumber: 5
     }, this);
 }

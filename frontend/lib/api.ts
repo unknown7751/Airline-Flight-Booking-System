@@ -65,6 +65,8 @@ export const api = {
     getAll: () => fetchAPI('/flights'),
     
     getById: (id: string) => fetchAPI(`/flights/${id}`),
+    
+    getSeats: (flightId: string) => fetchAPI(`/flights/${flightId}/seats`),
   },
 
   // Airports

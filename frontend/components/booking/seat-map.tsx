@@ -22,7 +22,7 @@ export function SeatMap({ seats, selectedSeats, onToggleSeat }: SeatMapProps) {
         <h3 className="font-semibold">{sectionTitle}</h3>
         <div className="space-y-2">
           {seatGrid.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex justify-center gap-2">
+            <div key={`${sectionTitle}-row-${rowIndex}`} className="flex justify-center gap-2">
               {row.map((seat) => {
                 const isSelected = selectedSeats.some((s) => s.id === seat.id)
                 return (

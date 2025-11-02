@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import type { BookingStep } from "@/types/booking"
 import { useBookingState } from "@/hooks/use-booking-state"
 import { BookingStepper } from "@/components/booking/booking-stepper"
@@ -17,8 +18,11 @@ const BOOKING_STEPS: BookingStep[] = [
 ]
 
 export default function BookingPage() {
+  const searchParams = useSearchParams()
+  const flightId = searchParams?.get("flightId") || "FL123"
+  
   const [currentStep, setCurrentStep] = useState(1)
-  const { bookingState, addPassenger, updatePassenger, removePassenger, toggleSeat } = useBookingState("FL123")
+  const { bookingState, addPassenger, updatePassenger, removePassenger, toggleSeat } = useBookingState(flightId)
 
   const handleNextStep = () => {
     if (currentStep < BOOKING_STEPS.length) {
@@ -56,6 +60,7 @@ export default function BookingPage() {
               onToggleSeat={toggleSeat}
               onNext={handleNextStep}
               onPrevious={handlePreviousStep}
+              flightId={flightId}
             />
           )}
 

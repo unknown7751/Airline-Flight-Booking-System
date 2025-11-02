@@ -158,7 +158,7 @@ Thank you for booking with us!
         <Card className="mb-6 p-6">
           <div className="flex items-center justify-between">
             <p className="text-lg font-semibold">Total Amount Paid</p>
-            <p className="text-2xl font-bold text-primary">${confirmation.total.toFixed(2)}</p>
+            <p className="text-2xl font-bold text-primary">${(confirmation.total || 0).toFixed(2)}</p>
           </div>
         </Card>
 

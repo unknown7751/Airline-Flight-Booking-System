@@ -4,6 +4,7 @@
 
 import express from 'express';
 import FlightController from '../controllers/flight.controller.js';
+import SeatController from '../controllers/seat.controller.js';
 import { body, query, param } from 'express-validator';
 import { validate } from '../middleware/validator.js';
 
@@ -41,6 +42,18 @@ router.get('/:id',
     validate,
   ],
   FlightController.getById
+);
+
+/**
+ * @route   GET /api/flights/:flightId/seats
+ * @desc    Get all seats for a specific flight
+ */
+router.get('/:flightId/seats',
+  [
+    param('flightId').isInt({ min: 1 }).withMessage('Invalid flight ID'),
+    validate,
+  ],
+  SeatController.getByFlight
 );
 
 /**

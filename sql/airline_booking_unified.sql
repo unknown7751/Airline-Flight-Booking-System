@@ -304,6 +304,29 @@ BEGIN
 END;
 /
 
+-- Trigger to auto-initialize available_seats from aircraft total_seats
+CREATE OR REPLACE TRIGGER trg_flights_init_seats
+BEFORE INSERT ON FLIGHTS FOR EACH ROW
+DECLARE
+  v_total_seats NUMBER;
+BEGIN
+  -- If available_seats is not provided or is 0, get it from aircraft
+  IF :NEW.aircraft_id IS NOT NULL AND (:NEW.available_seats IS NULL OR :NEW.available_seats = 0) THEN
+    SELECT total_seats INTO v_total_seats
+    FROM aircraft
+    WHERE aircraft_id = :NEW.aircraft_id;
+    
+    :NEW.available_seats := v_total_seats;
+  END IF;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    -- If aircraft not found, keep the provided value or default to 0
+    IF :NEW.available_seats IS NULL THEN
+      :NEW.available_seats := 0;
+    END IF;
+END;
+/
+
 CREATE OR REPLACE TRIGGER trg_passengers_id
 BEFORE INSERT ON PASSENGERS FOR EACH ROW
 BEGIN
@@ -764,17 +787,18 @@ END;
 -- ============================================
 PROMPT 'Populating FLIGHTS...';
 BEGIN
-  INSERT INTO FLIGHTS (flight_id, airline_id, flight_number, route_id, aircraft_id, origin_airport_id, destination_airport_id, departure_time, arrival_time, duration_minutes, price, available_seats, status)
-  VALUES (10000, 1000, '6E-204', 1, 1, 1001, 1000, '2025-11-15 08:00:00', '2025-11-15 10:00:00', 120, 4500.00, 180, 'scheduled');
+  -- Flight 6E-204: Mumbai to Delhi (Note: origin is 1001=Mumbai, destination is 1000=Delhi based on your search)
+  INSERT INTO FLIGHTS (flight_id, airline_id, flight_number, route_id, aircraft_id, origin_airport_id, destination_airport_id, departure_time, arrival_time, duration_minutes, price, status)
+  VALUES (10000, 1000, '6E-204', 1, 1, 1001, 1000, TIMESTAMP '2025-11-15 08:00:00', TIMESTAMP '2025-11-15 10:00:00', 120, 4500.00, 'SCHEDULED');
   
-  INSERT INTO FLIGHTS (flight_id, airline_id, flight_number, route_id, aircraft_id, origin_airport_id, destination_airport_id, departure_time, arrival_time, duration_minutes, price, available_seats, status)
-  VALUES (10001, 1001, 'AI-803', 2, 2, 1000, 1002, '2025-11-16 12:30:00', '2025-11-16 14:05:00', 95, 7800.00, 256, 'scheduled');
+  INSERT INTO FLIGHTS (flight_id, airline_id, flight_number, route_id, aircraft_id, origin_airport_id, destination_airport_id, departure_time, arrival_time, duration_minutes, price, status)
+  VALUES (10001, 1001, 'AI-803', 2, 2, 1000, 1002, TIMESTAMP '2025-11-16 12:30:00', TIMESTAMP '2025-11-16 14:05:00', 95, 7800.00, 'SCHEDULED');
   
-  INSERT INTO FLIGHTS (flight_id, airline_id, flight_number, route_id, aircraft_id, origin_airport_id, destination_airport_id, departure_time, arrival_time, duration_minutes, price, available_seats, status)
-  VALUES (10002, 1002, 'UK-945', 4, 3, 1002, 1001, '2025-11-17 18:00:00', '2025-11-17 20:45:00', 165, 6200.00, 232, 'scheduled');
+  INSERT INTO FLIGHTS (flight_id, airline_id, flight_number, route_id, aircraft_id, origin_airport_id, destination_airport_id, departure_time, arrival_time, duration_minutes, price, status)
+  VALUES (10002, 1002, 'UK-945', 4, 3, 1002, 1001, TIMESTAMP '2025-11-17 18:00:00', TIMESTAMP '2025-11-17 20:45:00', 165, 6200.00, 'SCHEDULED');
   
   COMMIT;
-  DBMS_OUTPUT.PUT_LINE('Data for FLIGHTS inserted successfully.');
+  DBMS_OUTPUT.PUT_LINE('Data for FLIGHTS inserted successfully. Available seats initialized from aircraft.');
 EXCEPTION
   WHEN DUP_VAL_ON_INDEX THEN
     DBMS_OUTPUT.PUT_LINE('Data for FLIGHTS already exists. Skipping.');

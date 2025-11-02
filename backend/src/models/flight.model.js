@@ -122,6 +122,7 @@ const FlightModel = {
         f.arrival_time,
         f.duration_minutes,
         f.price,
+        f.available_seats,
         f.status,
         a.name AS airline_name,
         a.airline_id,
@@ -135,9 +136,10 @@ const FlightModel = {
       JOIN AIRLINES a ON f.airline_id = a.airline_id
       JOIN AIRPORTS ao ON f.origin_airport_id = ao.airport_id
       JOIN AIRPORTS ad ON f.destination_airport_id = ad.airport_id
-      WHERE UPPER(ao.code) = UPPER(:origin)
-        AND UPPER(ad.code) = UPPER(:destination)
+      WHERE (UPPER(ao.code) = UPPER(:origin) OR UPPER(ao.city) LIKE '%' || UPPER(:origin) || '%')
+        AND (UPPER(ad.code) = UPPER(:destination) OR UPPER(ad.city) LIKE '%' || UPPER(:destination) || '%')
         AND UPPER(f.status) = 'SCHEDULED'
+        AND f.available_seats > 0
     `;
 
     const binds = { origin, destination };
@@ -168,7 +170,6 @@ const FlightModel = {
         arrival_time,
         duration_minutes,
         price,
-        available_seats,
         status,
         created_at
       ) VALUES (
@@ -182,9 +183,8 @@ const FlightModel = {
         TO_TIMESTAMP(:arrival_time, 'YYYY-MM-DD HH24:MI:SS'),
         :duration_minutes,
         :price,
-        :available_seats,
         :status,
-        :created_at
+        SYSTIMESTAMP
       ) RETURNING flight_id INTO :id
     `;
 
@@ -199,18 +199,11 @@ const FlightModel = {
       arrival_time: flightData.arrival_time,
       duration_minutes: flightData.duration_minutes,
       price: flightData.price,
-      available_seats: flightData.available_seats ?? flightData.available_seats === 0 ? 0 : null,
       status: flightData.status || 'SCHEDULED',
-      created_at: flightData.created_at || { val: new Date(), dir: db.oracledb.BIND_IN },
       id: { dir: db.oracledb.BIND_OUT, type: db.oracledb.NUMBER },
     };
 
-    // If available_seats wasn't provided, omit it to let DB or other logic set it later
-    if (binds.available_seats === null) {
-      delete binds.available_seats;
-      // remove from SQL as well — simplest approach: let caller provide available_seats; DB should have a trigger/default
-    }
-
+    // Note: available_seats will be auto-populated by DB trigger from aircraft.total_seats
     const result = await db.execute(sql, binds, { autoCommit: true });
     const flightId = result.outBinds.id[0];
     return await this.findById(flightId);
